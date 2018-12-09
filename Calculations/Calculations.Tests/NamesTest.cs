@@ -9,7 +9,7 @@ namespace Calculations.Tests
         {
             var names = new Names();
             var result = names.MakeFullName("fántics", "Attila");
-            Assert.Equal("Fántics Attila", result, ignoreCase: true);
+            Assert.Contains("Attila", result);
         }
     }
 }
