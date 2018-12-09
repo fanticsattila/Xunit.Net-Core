@@ -8,7 +8,7 @@ namespace Calculations.Tests
         public void MakeFullNameTest()
         {
             var names = new Names();
-            var result = names.MakeFullName("Fántics", "Attila");
+            var result = names.MakeFullName("fántics", "Attila");
             Assert.Equal("Fántics Attila", result);
         }
     }
