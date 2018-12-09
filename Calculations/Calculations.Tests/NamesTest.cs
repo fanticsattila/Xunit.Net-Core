@@ -9,7 +9,8 @@ namespace Calculations.Tests
         {
             var names = new Names();
             var result = names.MakeFullName("fántics", "Attila");
-            Assert.Contains("Fántics", result, System.StringComparison.InvariantCultureIgnoreCase);
+            Assert.StartsWith("Fántics", result, System.StringComparison.InvariantCultureIgnoreCase);
+            Assert.EndsWith("Attila", result);
         }
     }
 }
