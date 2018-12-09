@@ -8,9 +8,8 @@ namespace Calculations.Tests
         public void MakeFullNameTest()
         {
             var names = new Names();
-            var result = names.MakeFullName("fántics", "Attila");
-            Assert.StartsWith("Fántics", result, System.StringComparison.InvariantCultureIgnoreCase);
-            Assert.EndsWith("Attila", result);
+            var result = names.MakeFullName("Fantics", "Attila");
+            Assert.Matches("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+", result);
         }
     }
 }
