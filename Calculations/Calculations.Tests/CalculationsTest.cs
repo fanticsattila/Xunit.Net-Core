@@ -10,5 +10,12 @@ namespace Calculations.Tests
             var calc = new Calculations();
             Assert.All(calc.FiboNumbers, n => Assert.NotEqual(0, n));
         }
+
+        [Fact]
+        public void FiboIncludes13()
+        {
+            var calc = new Calculations();
+            Assert.Contains(13, calc.FiboNumbers);
+        }
     }
 }
