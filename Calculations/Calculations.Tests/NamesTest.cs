@@ -16,7 +16,8 @@ namespace Calculations.Tests
         public void NickName_MustBeNull()
         {
             var names = new Names();
-            Assert.Null(names.NickName);
+            names.NickName = "Fántics Attila";
+            Assert.NotNull(names.NickName);
         }
     }
 }
