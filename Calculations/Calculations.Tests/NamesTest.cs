@@ -19,5 +19,14 @@ namespace Calculations.Tests
             names.NickName = "Fántics Attila";
             Assert.NotNull(names.NickName);
         }
+
+        [Fact]
+        public void MakeFullName_AlwaysReturnValue()
+        {
+            var names = new Names();
+            var result = names.MakeFullName("Fántics", "Attila");
+            Assert.NotNull(result);
+            Assert.False(string.IsNullOrEmpty(result));
+        }
     }
 }
