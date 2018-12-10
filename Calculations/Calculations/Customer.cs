@@ -6,7 +6,12 @@ namespace Calculations
 {
     public class Customer
     {
-        public string Name => "Fántics Attila";
+        public int GetOrdersByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+                throw new ArgumentException("Hello");
+            return 100;
+        }
         public int Age => 41;
     }
 }
