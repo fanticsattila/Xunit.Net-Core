@@ -25,5 +25,13 @@ namespace Calculations.Tests
             var calc = new Calculations();
             Assert.DoesNotContain(4, calc.FiboNumbers);
         }
+
+        [Fact]
+        public void CheckCollection()
+        {
+            var expCollection = new List<int> { 1, 1, 2, 3, 5, 8, 13 };
+            var calc = new Calculations();
+            Assert.Equal(expCollection, calc.FiboNumbers);
+        }
     }
 }
