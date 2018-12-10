@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using Xunit;
 
 namespace Calculations.Tests
 {
@@ -16,6 +17,13 @@ namespace Calculations.Tests
         {
             var calc = new Calculations();
             Assert.Contains(13, calc.FiboNumbers);
+        }
+
+        [Fact]
+        public void FiboDoesNotInclude4()
+        {
+            var calc = new Calculations();
+            Assert.DoesNotContain(4, calc.FiboNumbers);
         }
     }
 }
