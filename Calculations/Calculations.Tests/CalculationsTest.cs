@@ -1,15 +1,40 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Calculations.Tests
 {
-    public class CalculationsTest
+    public class CalculatorFixture : IDisposable
     {
+        public Calculations Calc => new Calculations();
+
+        public void Dispose()
+        {
+            
+        }
+    }
+    public class CalculationsTest : IClassFixture<CalculatorFixture>
+    {
+        private readonly ITestOutputHelper _testOutputHelper;
+        private readonly CalculatorFixture _calculatorFixture;
+        private readonly MemoryStream _memoryStream;
+
+        public CalculationsTest(ITestOutputHelper testOutputHelper, CalculatorFixture calculatorFixture)
+        {
+            _testOutputHelper = testOutputHelper;
+            _calculatorFixture = calculatorFixture;
+            _testOutputHelper.WriteLine("Constructor");
+
+            _memoryStream = new MemoryStream();
+        }
+
         [Fact]
         [Trait("Category", "Fibo")]
         public void FiboDoesNotIncludeZero()
         {
-            var calc = new Calculations();
+            var calc = _calculatorFixture.Calc;
             Assert.All(calc.FiboNumbers, n => Assert.NotEqual(0, n));
         }
 
@@ -17,7 +42,7 @@ namespace Calculations.Tests
         [Trait("Category", "Fibo")]
         public void FiboIncludes13()
         {
-            var calc = new Calculations();
+            var calc = _calculatorFixture.Calc;
             Assert.Contains(13, calc.FiboNumbers);
         }
 
@@ -25,7 +50,7 @@ namespace Calculations.Tests
         [Trait("Category", "Fibo")]
         public void FiboDoesNotInclude4()
         {
-            var calc = new Calculations();
+            var calc = _calculatorFixture.Calc;
             Assert.DoesNotContain(4, calc.FiboNumbers);
         }
 
@@ -34,7 +59,7 @@ namespace Calculations.Tests
         public void CheckCollection()
         {
             var expCollection = new List<int> { 1, 1, 2, 3, 5, 8, 13 };
-            var calc = new Calculations();
+            var calc = _calculatorFixture.Calc;
             Assert.Equal(expCollection, calc.FiboNumbers);
         }
     }
