@@ -58,9 +58,13 @@ namespace Calculations.Tests
         [Trait("Category", "Fibo")]
         public void CheckCollection()
         {
+            _testOutputHelper.WriteLine("Test start at {0}", DateTime.Now);
             var expCollection = new List<int> { 1, 1, 2, 3, 5, 8, 13 };
+            _testOutputHelper.WriteLine("Creating an instance of Calculator class...");
             var calc = _calculatorFixture.Calc;
+            _testOutputHelper.WriteLine("Asserting...");
             Assert.Equal(expCollection, calc.FiboNumbers);
+            _testOutputHelper.WriteLine("End.");
         }
     }
 }
