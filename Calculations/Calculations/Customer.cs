@@ -13,6 +13,11 @@ namespace Calculations
             return 100;
         }
         public int Age => 41;
+
+        public string GetFullName(string firstName, string lastName)
+        {
+            return $"{firstName} {lastName}";
+        }
     }
 
     public class LoyalCustomer : Customer
