@@ -84,7 +84,7 @@ namespace Calculations.Tests
         }
 
         [Theory]
-        [MemberData(nameof(TestDataShare.IsOddOrEvenData), MemberType = typeof(TestDataShare))]
+        [MemberData(nameof(TestDataShare.IsOddOrEvenExternalData), MemberType = typeof(TestDataShare))]
         public void IsOdd_TestOddAndEven(int value, bool expected)
         {
             var calc = _calculatorFixture.Calc;
