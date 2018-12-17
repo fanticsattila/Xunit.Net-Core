@@ -1,14 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MockTest.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MockTest.Repositories
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly IConfiguration _configuration;
 

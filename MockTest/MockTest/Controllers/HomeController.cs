@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
 using MockTest.Models;
 using MockTest.Repositories;
 
@@ -12,11 +6,11 @@ namespace MockTest.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IConfiguration _configuration;
+        private readonly ICustomerRepository _customerRepository;
 
-        public HomeController(IConfiguration configuration)
+        public HomeController(ICustomerRepository customerRepository)
         {
-            _configuration = configuration;
+            _customerRepository = customerRepository;
         }
         public IActionResult Index()
         {
@@ -28,8 +22,7 @@ namespace MockTest.Controllers
         {
             if(ModelState.IsValid)
             {
-                var repository = new CustomerRepository(_configuration);
-                repository.Save(model);
+                _customerRepository.Save(model);
             }
             return View();
         }
