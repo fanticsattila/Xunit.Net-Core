@@ -1,0 +1,12 @@
+﻿@model CustomerModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="content">
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <span>Customer First Name:</span><input type="text" asp-for="FirstName" value="@Model.FirstName" />
+        <span>Customer Last Name:</span><input type="text" asp-for="LastName" value="@Model.LastName" />
+        <input type="submit" value="Save"/>
+    </form>
+</div>
